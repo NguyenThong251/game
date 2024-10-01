@@ -19,15 +19,7 @@
                     </div>
                 </div>
                 <div class="right">
-                    <div class="topbar-ri">
-                        <input class="user" placeholder="Tên người dùng" maxlength="16" required>
-                        <div class="reg-box">
-                            <input class="password" placeholder="mật khẩu" type="password" maxlength="20" required><a
-                                class="forget-a" style="display: none;">Quên
-                                mật khẩu？</a>
-                        </div><!---->
-                        <div class="login">Đăng nhập</div><a href="javascript:;" class="register">Đăng ký ngay</a>
-                    </div>
+                    <FormLogin />
                 </div>
             </div>
         </div>
@@ -247,6 +239,8 @@
 </template>
 
 <script setup lang="ts">
+import FormLogin from './ui/form/FormLogin.vue';
+
 
 </script>
 
