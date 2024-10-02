@@ -1,27 +1,34 @@
 <template>
-  <div class="js-toggle dropdown">
+  <div v-if="!languageStore.isLoading" class="js-toggle dropdown">
     <div class="js-toggle-link tg-link">
-      <p class="icon" :class="currentLanguage === 'vi' ? 'icon--vi' : 'icon--en'"></p>
+      <p class="icon" :class="languageStore.currentLanguage === 'vi' ? 'icon--vi' : 'icon--en'"></p>
       <p class="text">
-        <span>{{ currentLanguage === 'vi' ? 'Việt Nam' : 'English' }}</span>
+        <span>{{ languageStore.getCurrentLanguageName }}</span>
         <span class="arrow"></span>
       </p>
     </div>
     <div class="js-toggle-content tg-content">
-      <p @click="changeLanguage('vi')">Việt Nam</p>
-      <p @click="changeLanguage('en')">English</p>
+      <p v-for="(name, code) in languageStore.languages" :key="code" @click="changeLanguage(code)">
+        {{ name }}
+      </p>
     </div>
   </div>
+  <div v-else>Đang tải...</div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { onMounted } from 'vue'
+import { useLanguageStore } from '@/stores/languageStore'
 
-const currentLanguage = ref('vi')
+const languageStore = useLanguageStore()
 
 const changeLanguage = (lang: string) => {
-  currentLanguage.value = lang
+  languageStore.setLanguage(lang)
 }
+
+onMounted(async () => {
+  await languageStore.initLanguage()
+})
 </script>
 
 <style></style>
