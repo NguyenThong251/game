@@ -1,5 +1,5 @@
 <template>
-  <div v-if="!languageStore.isLoading" class="js-toggle dropdown">
+  <div v-if="!languageStore.isLoading" class="js-toggle dropdown-lang">
     <div class="js-toggle-link tg-link">
       <p class="icon" :class="languageStore.currentLanguage === 'vi' ? 'icon--vi' : 'icon--en'"></p>
       <p class="text">
@@ -17,7 +17,6 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted } from 'vue'
 import { useLanguageStore } from '@/stores/languageStore'
 
 const languageStore = useLanguageStore()
@@ -25,10 +24,4 @@ const languageStore = useLanguageStore()
 const changeLanguage = (lang: string) => {
   languageStore.setLanguage(lang)
 }
-
-onMounted(async () => {
-  await languageStore.initLanguage()
-})
 </script>
-
-<style></style>

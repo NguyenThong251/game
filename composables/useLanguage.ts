@@ -22,7 +22,7 @@ export function useFetchLanguage() {
     error.value = null
 
     try {
-      const data: LanguageResponse = await useApi('api/language')
+      const data: LanguageResponse = await useApi('language')
 
       if (data.status === 'success') {
         languages.value = data.data.list

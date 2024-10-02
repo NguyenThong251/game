@@ -12,10 +12,15 @@
 
 <script setup lang="ts">
 import useGames from '@/composables/useGames'
+import { useLanguageStore } from '@/stores/languageStore'
+import { onMounted } from 'vue'
+
 const { fetchGames } = useGames()
 const { fetchNotices } = useNotices()
+const languageStore = useLanguageStore()
 
-onMounted(() => {
+onMounted(async () => {
+    await languageStore.initLanguage()
     fetchGames()
     fetchNotices()
 })

@@ -3,10 +3,10 @@
         <div class="header01 pc">
             <div class="inner">
                 <div class="left">
-                    <HeaderLanguageSelector />
                 </div>
                 <div class="right">
                     <FormLogin />
+                    <HeaderLanguageSelector />
                 </div>
             </div>
         </div>
@@ -53,6 +53,5 @@
 
 <script setup lang="ts">
 import FormLogin from './ui/form/FormLogin.vue';
-
 
 </script>

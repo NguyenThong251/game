@@ -22,7 +22,7 @@ export const useAuthStore = defineStore("authStore", () => {
   const token = useCookie("member_login_token", {
     path: "/",
     sameSite: "strict",
-    secure: config.public.apiBaseUrl.startsWith("https://"),
+    secure: typeof config.public.apiBaseUrl === 'string' && config.public.apiBaseUrl.startsWith("https://"),
     maxAge: 60 * 60 * 24 * 365,
   });
 
