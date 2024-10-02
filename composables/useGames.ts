@@ -1,4 +1,4 @@
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import type { Game, ApiResponse } from '~/types/game'
 import { getMockGames, getUpcomingGames, getFeaturedGames } from '~/mocks/games'
 
@@ -8,7 +8,7 @@ export default function useGames() {
   const featuredGames = ref<Game[]>([])
   const loading = ref(false)
   const error = ref<string | null>(null)
-  const config = useRuntimeConfig();
+  // const config = useRuntimeConfig();
 
   const fetchGames = async () => {
     loading.value = true
@@ -47,6 +47,10 @@ export default function useGames() {
       loading.value = false
     }
   }
+
+  onMounted(() => {
+    fetchGames()
+  })
 
   return {
     upcomingGames,

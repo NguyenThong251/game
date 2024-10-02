@@ -4,7 +4,7 @@
     <div class="section-content">
       <div v-if="loading">Đang tải...</div>
       <div v-else-if="error">{{ error }}</div>
-      <div v-else class="popularBettingNewTheme">
+      <div v-else-if="upcomingGames.length" class="popularBettingNewTheme">
         <div v-for="game in upcomingGames" :key="game.id" class="popularBetting">
           <div class="countdown-wp">
             <div class="iconfont icon-icon_clock"></div>
@@ -48,11 +48,11 @@
 <script lang="ts" setup>
 import useGames from '@/composables/useGames'
 import { ref } from 'vue'
+
 const { upcomingGames, loading, error } = useGames()
 
 const countdown = ref({
   minutes: ['0', '0'],
   seconds: ['0', '0']
 })
-
 </script>

@@ -4,10 +4,9 @@
     <div class="section-content">
       <div v-if="loading">Đang tải...</div>
       <div v-else-if="error">{{ error }}</div>
-      <div v-else class="third-party-wp">
+      <div v-else-if="featuredGames.length" class="third-party-wp">
         <div class="swiper-game-list">
-          <div
-            class="swiper-container swiper swiper-container-initialized swiper-container-horizontal swiper-container-multirow swiper-container-multirow-column swiper-container-ios">
+          <div class="swiper-container swiper">
             <div class="swiper-wrapper">
               <div v-for="game in featuredGames" :key="game.id" class="swiper-slide">
                 <div class="game">
@@ -24,16 +23,19 @@
               </div>
             </div>
           </div>
-          <div class="swiper-button-prev swiper-button-disabled"></div>
+          <div class="swiper-button-prev"></div>
           <div class="swiper-button-next"></div>
         </div>
       </div>
+      <div v-else>Không có game nổi bật</div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import useGames from '@/composables/useGames'
+
 const { featuredGames, loading, error } = useGames()
 const title = ref('Game nổi bật')
 
