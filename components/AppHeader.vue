@@ -1,8 +1,8 @@
 <template>
     <header class="header">
-        <div class="header01 pc">
+        <div class="header01">
             <div class="inner">
-                <div class="left">
+                <div class="left pc">
                 </div>
                 <div class="right">
                     <FormLogin />
@@ -18,15 +18,14 @@
                             alt="logoName"></a>
                 </div>
 
-                <MenuPC />
-                <!-- <div class="kf-box">
-          <div class="kf-item promotions"><img src="image/Desktop/header/khuyen-mai.png">
-            <p>Khuyến mãi</p>
-          </div>
-          <div class="kf-item"><img src="image/Desktop/header/ho-tro.png">
-            <p>Hỗ Trợ</p>
-          </div>
-        </div> -->
+                <div class="kf-box">
+                    <a class="kf-item promotions"><img src="/image/Desktop/header/khuyen-mai.png">
+                        <p>Khuyến mãi</p>
+                    </a>
+                    <a class="kf-item"><img src="/image/Desktop/header/ho-tro.png">
+                        <p>Hỗ Trợ</p>
+                    </a>
+                </div>
             </div>
         </div>
         <div class="header03 sp">
@@ -40,12 +39,6 @@
                     <li>Đăng Nhập</li>
                     <li>Đăng Ký</li>
                 </ul>
-            </div>
-            <div class="lg sp">
-                <div class="img">
-                    <img src="/image/Mobile/home/vn.png" width="27px" height="27px" alt="">
-                    <!-- <img src="image/Mobile/home/en.png" width="27px" height="27px" alt=""> -->
-                </div>
             </div>
         </div>
     </header>

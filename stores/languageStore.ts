@@ -9,7 +9,9 @@ export const useLanguageStore = defineStore('language', () => {
   const setLanguage = (lang: string) => {
     if (lang in languages.value) {
       currentLanguage.value = lang
-      localStorage.setItem('selectedLanguage', lang)
+      if (process.client) {
+        localStorage.setItem('selectedLanguage', lang)
+      }
     }
   }
 
@@ -19,9 +21,13 @@ export const useLanguageStore = defineStore('language', () => {
 
   const initLanguage = async () => {
     await fetchLanguages()
-    const savedLanguage = localStorage.getItem('selectedLanguage')
-    if (savedLanguage && savedLanguage in languages.value) {
-      currentLanguage.value = savedLanguage
+    if (process.client) {
+      const savedLanguage = localStorage.getItem('selectedLanguage')
+      if (savedLanguage && savedLanguage in languages.value) {
+        currentLanguage.value = savedLanguage
+      } else {
+        currentLanguage.value = defaultLanguage.value
+      }
     } else {
       currentLanguage.value = defaultLanguage.value
     }

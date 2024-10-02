@@ -27,6 +27,7 @@ export function useFetchLanguage() {
       if (data.status === 'success') {
         languages.value = data.data.list
         defaultLanguage.value = data.data.default
+        console.log('Fetch languages: ', languages.value)
       } else {
         throw new Error('Không thể tải danh sách ngôn ngữ')
       }

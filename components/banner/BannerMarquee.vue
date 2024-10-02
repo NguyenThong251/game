@@ -1,5 +1,5 @@
 <template>
-  <div class="marquee-wrapper marquee current">
+  <div v-if="notices.length > 0" class="marquee-wrapper marquee current">
     <div class="context inner">
       <img src="/image/Desktop/home/icon01.png" width="18px" height="18px" alt="" class="marquee-icon">
       <marquee>
@@ -13,16 +13,16 @@
 </template>
 
 <script lang="ts" setup>
+import { useNotices } from '@/composables/useNotices'
+import { onMounted, watch } from 'vue'
 
 const { notices, fetchNotices } = useNotices()
 
-onMounted(() => {
-  fetchNotices()
+onMounted(async () => {
+  await fetchNotices()
+})
+
+watch(notices, (newNotices) => {
+  console.log('Notices in BannerMarquee:', newNotices)
 })
 </script>
-
-<style scoped>
-.separator {
-  margin: 0 10px;
-}
-</style>

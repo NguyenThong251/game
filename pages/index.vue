@@ -1,6 +1,7 @@
 <template>
     <main class="main">
         <Banner />
+        <MenuMobile />
         <div class="wrap-home">
             <div class="home">
                 <GamesUpcoming />
@@ -13,15 +14,16 @@
 <script setup lang="ts">
 import useGames from '@/composables/useGames'
 import { useLanguageStore } from '@/stores/languageStore'
-import { onMounted } from 'vue'
+import { useNotices } from '@/composables/useNotices'
 
 const { fetchGames } = useGames()
-const { fetchNotices } = useNotices()
+const { notices, fetchNotices } = useNotices()
 const languageStore = useLanguageStore()
 
-onMounted(async () => {
-    await languageStore.initLanguage()
+await languageStore.initLanguage()
+await fetchNotices()
+
+onMounted(() => {
     fetchGames()
-    fetchNotices()
 })
 </script>
