@@ -17,15 +17,8 @@
                             src="https://cms.t79.bet/storage/uploads/config/202409/25/config_1727248104_7vGCKJpUyb.png"
                             alt="logoName"></a>
                 </div>
-
-                <div class="kf-box">
-                    <a class="kf-item promotions"><img src="/image/Desktop/header/khuyen-mai.png">
-                        <p>Khuyến mãi</p>
-                    </a>
-                    <a class="kf-item"><img src="/image/Desktop/header/ho-tro.png">
-                        <p>Hỗ Trợ</p>
-                    </a>
-                </div>
+                <MenuPC />
+                
             </div>
         </div>
         <div class="header03 sp">

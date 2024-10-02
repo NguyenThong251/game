@@ -153,7 +153,14 @@
     <li title="Xổ Số"><a href="#/Lottery" class="category"><span>Xổ Số</span></a></li>
     <!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!---->
   </ul>
-
+  <div class="kf-box">
+    <a class="kf-item promotions"><img src="/image/Desktop/header/khuyen-mai.png">
+      <p>Khuyến mãi</p>
+    </a>
+    <a class="kf-item"><img src="/image/Desktop/header/ho-tro.png">
+      <p>Hỗ Trợ</p>
+    </a>
+  </div>
 </template>
 
 <script lang="ts" setup>
