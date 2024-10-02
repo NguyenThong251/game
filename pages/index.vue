@@ -11,6 +11,7 @@
 </template>
 
 <script setup lang="ts">
+import useGames from '@/composables/useGames'
 const { fetchGames } = useGames()
 const { fetchNotices } = useNotices()
 

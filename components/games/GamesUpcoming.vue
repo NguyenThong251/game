@@ -46,6 +46,7 @@
 </template>
 
 <script lang="ts" setup>
+import useGames from '@/composables/useGames'
 import { ref } from 'vue'
 const { upcomingGames, loading, error } = useGames()
 

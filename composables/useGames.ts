@@ -1,38 +1,9 @@
 import { ref } from 'vue'
-
-interface Game {
-  id: number;
-  api_name: string;
-  name: string;
-  en_name: string;
-  game_type: number;
-  game_code: string;
-  img_url: string;
-  client_type: string;
-  platform: string | null;
-  param_remark: string;
-  is_open: string;
-  weight: string;
-  tags: string;
-  created_at: string;
-  updated_at: string;
-}
-
-interface GameCategory {
-  api_title: string;
-  api_name: string;
-  tags: string;
-  list: Game[];
-}
-
-interface ApiResponse {
-  status: string;
-  code: number;
-  message: string;
-  data: GameCategory[];
-}
+import type { Game, ApiResponse } from '~/types/game'
+import { getMockGames, getUpcomingGames, getFeaturedGames } from '~/mocks/games'
 
 export default function useGames() {
+
   const upcomingGames = ref<Game[]>([])
   const featuredGames = ref<Game[]>([])
   const loading = ref(false)
@@ -44,10 +15,18 @@ export default function useGames() {
     error.value = null
 
     try {
-      const { data } = await useFetch<ApiResponse>(`${config.public.apiBase}/games/hotmain`)
+      // Sử dụng mock data
+      const mockData = getMockGames()
 
-      console.log(`Fetch url: ${config.public.apiBase}/games/hotmain`)
-      console.log('Data', data.value)
+      if (mockData.status === 'success') {
+        upcomingGames.value = getUpcomingGames()
+        featuredGames.value = getFeaturedGames()
+      } else {
+        throw new Error('Không thể tải dữ liệu trò chơi')
+      }
+
+      /*
+      const { data } = await useFetch<ApiResponse>(`${config.public.apiBase}/games/hotmain`)
 
       if (data.value && data.value.status === 'success') {
         const gameCategories = data.value.data
@@ -60,6 +39,7 @@ export default function useGames() {
       } else {
         throw new Error('Không thể tải dữ liệu trò chơi')
       }
+      */
     } catch (err) {
       error.value = 'Đã xảy ra lỗi khi tải dữ liệu trò chơi'
       console.error(error.value, err)
