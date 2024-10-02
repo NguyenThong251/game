@@ -6,7 +6,7 @@ export default defineNuxtConfig({
   modules: ["@pinia/nuxt"],
   runtimeConfig: {
     public: {
-      apiBase: "https://cms.t79.bet/api"
+      apiBase: "https://cms.t79.bet/api",
     }
   },
 });
