@@ -1,4 +1,4 @@
-import { ApiResponse, GameCategory, Game } from '@/types/game'
+import type { ApiResponse, GameCategory, Game } from '@/types/game'
 
 const mockGames: Game[] = [
     {

@@ -10,7 +10,6 @@
             </div>
             <div class="lo-right">
               <p>AI Sports</p>
-              <div class="start">Đấu</div>
             </div>
           </a>
           <a href="javascript:;" class="box F-GAME">
@@ -19,7 +18,6 @@
             </div>
             <div class="lo-right">
               <p>Sabah Sports</p>
-              <div class="start">Đầu</div>
             </div>
           </a>
           <a href="javascript:;" class="box F-GAME">
@@ -28,7 +26,6 @@
             </div>
             <div class="lo-right">
               <p>AG Sports</p>
-              <div class="start">Đầu</div>
             </div>
           </a>
           <!----><!----><!----><!----><!----><!----><!----><!----><!----><!---->
@@ -44,7 +41,6 @@
             </div>
             <div class="lo-right">
               <p>AG băng hình</p>
-              <div class="start">Đầu</div>
             </div>
           </a><a href="javascript:;" class="box F-GAME">
             <div class="lo-left"><img
@@ -52,7 +48,6 @@
                 class="lo"></div>
             <div class="lo-right">
               <p>DG băng hình</p>
-              <div class="start">Đầu</div>
             </div>
           </a><a href="javascript:;" class="box F-GAME">
             <div class="lo-left"><img
@@ -60,7 +55,6 @@
             </div>
             <div class="lo-right">
               <p>SEXY băng hình</p>
-              <div class="start">Đầu</div>
             </div>
           </a><!----><!----><!----><!----><!----><!----></div>
       </div>
@@ -75,7 +69,6 @@
             </div>
             <div class="lo-right">
               <p>JILI NỔ HŨ</p>
-              <div class="start">Đầu</div>
             </div>
           </a>
           <a href="#/Game?api=FC1" class="box F-GAME">
@@ -84,7 +77,6 @@
             </div>
             <div class="lo-right">
               <p>FC NỔ HŨ</p>
-              <div class="start">Đầu</div>
             </div>
           </a>
           <a href="#/Game?api=PG4" class="box F-GAME">
@@ -93,7 +85,6 @@
             </div>
             <div class="lo-right">
               <p>PG NỔ HŨ</p>
-              <div class="start">Đầu</div>
             </div>
           </a>
           <a href="#/Game?api=AG4" class="box F-GAME">
@@ -102,7 +93,6 @@
             </div>
             <div class="lo-right">
               <p>AG NỔ HŨ</p>
-              <div class="start">Đầu</div>
             </div>
           </a>
         </div>
@@ -125,7 +115,6 @@
             </div>
             <div class="lo-right">
               <p>LEG Poker</p>
-              <div class="start">Đầu</div>
             </div>
           </a>
         </div>
@@ -141,7 +130,6 @@
                 class="lo"></div>
             <div class="lo-right">
               <p>CQ9 ngư trường vàng</p>
-              <div class="start">Đầu</div>
             </div>
           </a>
           <a href="javascript:;" class="box F-GAME">
@@ -150,7 +138,6 @@
                 class="lo"></div>
             <div class="lo-right">
               <p>JDB Câu cá vua rồng 2</p>
-              <div class="start">Đầu</div>
             </div>
           </a><a href="javascript:;" class="box F-GAME">
             <div class="lo-left"><img
@@ -158,7 +145,6 @@
             </div>
             <div class="lo-right">
               <p>Câu cá AG</p>
-              <div class="start">Đầu</div>
             </div>
           </a><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!---->
         </div>
@@ -167,6 +153,7 @@
     <li title="Xổ Số"><a href="#/Lottery" class="category"><span>Xổ Số</span></a></li>
     <!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!---->
   </ul>
+
 </template>
 
 <script lang="ts" setup>
