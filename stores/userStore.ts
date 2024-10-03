@@ -22,30 +22,55 @@ export const useAuthStore = defineStore("authStore", () => {
   const token = useCookie("member_login_token", {
     path: "/",
     sameSite: "strict",
-    secure: typeof config.public.apiBaseUrl === 'string' && config.public.apiBaseUrl.startsWith("https://"),
+    secure:
+      typeof config.public.apiBaseUrl === "string" &&
+      config.public.apiBaseUrl.startsWith("https://"),
     maxAge: 60 * 60 * 24 * 365,
   });
 
   const logged = computed(() => !!token.value);
+  const isLoading = ref(false); // Thêm biến trạng thái loading
 
   // Hàm đăng nhập
   const login = async (credentials: { name: string; password: string }) => {
+    isLoading.value = true; // Bắt đầu loading
     try {
-      const datas = await useApi("auth/login", {
+      const response = await useApi("auth/login", {
         method: "POST",
         body: credentials,
       });
-      if (datas.data.access_token) {
-        token.value = datas.data.access_token;
-        await fetchUser(); // Lấy thông tin người dùng sau khi đăng nhập
+      
+      if (response.status === "error") {
+        return {
+          success: false,
+          message: response.message || "Đăng nhập thất bại",
+        };
       }
-    } catch (error) {
+      
+      if (response.data && response.data.access_token) {
+        token.value = response.data.access_token;
+        await fetchUser();
+        return { success: true };
+      }
+      
+      return {
+        success: false,
+        message: "Đăng nhập thất bại",
+      };
+    } catch (error: any) {
       console.error("Login failed:", error);
+      return {
+        success: false,
+        message: error.data?.message || "Đã xảy ra lỗi không mong muốn.",
+      };
+    } finally {
+      isLoading.value = false; // Kết thúc loading
     }
   };
 
   // Lấy thông tin người dùng
   const fetchUser = async () => {
+    isLoading.value = true; // Bắt đầu loading
     try {
       const data = await useApi("user", {
         headers: {
@@ -58,6 +83,8 @@ export const useAuthStore = defineStore("authStore", () => {
       }
     } catch (error) {
       console.error("Fetching user data failed:", error);
+    } finally {
+      isLoading.value = false; // Kết thúc loading
     }
   };
 
@@ -80,5 +107,5 @@ export const useAuthStore = defineStore("authStore", () => {
     }
   };
 
-  return { user, logged, login, fetchUser, logout, token };
+  return { user, logged, login, fetchUser, logout, token, isLoading }; // Trả về biến loading
 });

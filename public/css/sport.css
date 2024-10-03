@@ -55,6 +55,7 @@
     -webkit-transition: all .3s;
     transition: all .3s;
     cursor: pointer;
+    overflow: hidden;
 }
 .sport-wrapper .sport-wrapper-bottom .sport-game-inner .game-list-wrap .list .imgOne {
     /* height: calc(272px / var(--Cardinality)); */
@@ -63,7 +64,13 @@
     position: absolute;
     right: 0;
     bottom: 0;
-    z-index: 1;
+    z-index: 1;   
+}
+.sport-wrapper .sport-wrapper-bottom .sport-game-inner .game-list-wrap .list .imgOne{
+    width: 150px;
+    height: 140px;
+    object-fit: contain;
+    object-position: center bottom;
 }
 .sport-wrapper .sport-wrapper-bottom .sport-game-inner .game-list-wrap .list .imgTwo {
     width: calc(380px / var(--Cardinality));

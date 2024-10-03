@@ -1,21 +1,20 @@
 <template>
     <div>
+        <!-- <div v-if="userStore.isLoading" class="overlay-loading">Loading...</div> -->
         <!-- Kiểm tra nếu đã có user đăng nhập -->
         <div v-if="userStore.logged">
             <!-- Hiển thị khi người dùng đã đăng nhập -->
-            <div class="js-toggle dropdown is-login">
-                <div class="js-toggle-link tg-link">
+            <div class="dropdown is-login" @click="toggleDropdown">
+                <div class="tg-link">
                     <p class="icon icon--vi">
                         <img src="/image/home/BANCA.png" alt="">
                     </p>
-                    <!-- <p class="icon icon--en"></p> -->
                     <p class="text">
-                        <!-- điều kiện liên quan đến interface user  -->
-                        <span>{{ userStore.user?.name }}</span>
+                        <span>My Name</span>
                         <span class="arrow"></span>
                     </p>
                 </div>
-                <div class="js-toggle-content tg-content">
+                <div v-if="isDropdownOpen" class="tg-content">
                     <ul>
                         <li class="line">
                             <div class="wrap">
@@ -47,7 +46,7 @@
                             </a>
                         </li>
                         <li>
-                            <div class="wrap" @click.prevent="handleLogout">
+                            <div class="wrap">
                                 <img src="/image/Desktop/header/icon05.png" width="20px" height="20px" alt="ck"> Đăng
                                 xuất
                             </div>
@@ -55,9 +54,10 @@
                     </ul>
                 </div>
             </div>
+
         </div>
 
-        <form v-else class="topbar-ri pc is-login">
+        <form v-else class="topbar-ri pc">
             <input v-model="name" class="user" placeholder="Tên người dùng" maxlength="16" required>
             <div class="reg-box">
                 <input v-model="password" class="password" placeholder="mật khẩu" type="password" maxlength="20"
@@ -72,12 +72,36 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, onMounted, onBeforeUnmount } from 'vue';
 import { useAuthStore } from '@/stores/userStore';
-const name = ref('');
-const password = ref('');
 
 const userStore = useAuthStore();
+const isDropdownOpen = ref(false); // Biến trạng thái cho dropdown
+
+const toggleDropdown = () => {
+    isDropdownOpen.value = !isDropdownOpen.value; // Chuyển đổi trạng thái dropdown
+    console.log('Dropdown state:', isDropdownOpen.value); // Kiểm tra trạng thái
+};
+
+// Đóng dropdown khi nhấp ra ngoài
+const handleClickOutside = (event: MouseEvent) => {
+    const dropdown = document.querySelector('.dropdown');
+    if (dropdown && !dropdown.contains(event.target as Node)) {
+        isDropdownOpen.value = false;
+        console.log('Dropdown closed'); // Kiểm tra khi đóng
+    }
+};
+
+onMounted(() => {
+    document.addEventListener('click', handleClickOutside);
+});
+
+onBeforeUnmount(() => {
+    document.removeEventListener('click', handleClickOutside);
+});
+
+const name = ref('');
+const password = ref('');
 const handleLogin = async () => {
     try {
         await userStore.login({
@@ -89,6 +113,7 @@ const handleLogin = async () => {
         alert('Login failed!');
     }
 };
+console.log(userStore.logged)
 // Hàm xử lý đăng xuất
 const handleLogout = async () => {
     try {
@@ -98,4 +123,6 @@ const handleLogout = async () => {
         console.error('Logout failed!', error);
     }
 };
+
+
 </script>
