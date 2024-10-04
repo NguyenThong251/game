@@ -43,7 +43,6 @@ export const useNotices = () => {
     }
   }
 
-  // Gọi fetchNotices ngay lập tức để đảm bảo dữ liệu được tải trong SSR
   fetchNotices()
 
   return {
