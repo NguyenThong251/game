@@ -50,10 +50,11 @@
                             <p>Philippines (PAGCOR) giám sát giấy phép</p>
                         </section>
                     </div>
-                    <div class="brand-three"><a href="#/AboutUs/40" class="link-item">Hướng dẫn
-                            người mới</a><a href="#/AboutUs/39" class="link-item">Câu hỏi thường gặp</a><a
-                            href="#/AboutUs/32" class="link-item">Về chúng tôi</a><a href="#/AboutUs/36"
-                            class="link-item">Liên hệ</a><a href="#/AboutUs/38" class="link-item">Điều khoản</a></div>
+                    <div class="brand-three">
+                        <a v-for="item in aboutItems" :key="item.id" :href="`#/AboutUs/${item.id}`" class="link-item">
+                            {{ item.title }}
+                        </a>
+                    </div>
                 </div>
             </div>
             <div class="footer-wrapper-three">
@@ -88,7 +89,6 @@
 </template>
 
 <script setup lang="ts">
-
+import useApi from '@/composables/useApi'
+const { data: aboutItems } = await useApi(`about/list?lang=vi`);
 </script>
-
-<style scoped></style>
