@@ -475,7 +475,14 @@ body {
   color: #fff;
   height: 28px;
   line-height: 28px;
+  cursor: pointer;
+  transition: all 0.5s;
 }
+
+.header .header01 .topbar-ri .register:hover {
+  opacity: 0.5;
+}
+
 .header .header02 {
   padding: 10px 0;
   background: var(--herder-bg-down);

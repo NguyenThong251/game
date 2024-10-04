@@ -1,42 +1,71 @@
 <template>
   <div class="feature-game-wp">
-    <div class="section-title">{{ title }}</div>
+    <div class="section-title">Trò chơi nổi bật</div>
     <div class="section-content">
-      <div v-if="loading">Đang tải...</div>
-      <div v-else-if="error">{{ error }}</div>
-      <div v-else-if="featuredGames.length" class="third-party-wp">
+      <div class="third-party-wp">
         <div class="swiper-game-list">
-          <div class="swiper-container swiper">
-            <div class="swiper-wrapper">
-              <div v-for="game in featuredGames" :key="game.id" class="swiper-slide">
+          <Carousel :items-to-show="5" :wrap-around="true">
+            <Slide v-for="game in featuredGames" :key="game.id">
+              <div class="swiper-slide">
                 <div class="game">
+                  <div class="ani-container">
+                    <canvas width="260" height="260" :style="getCanvasStyle(game)"></canvas>
+                  </div>
                   <div class="el-image">
-                    <img :src="game.img_url" :alt="game.name" class="el-image__inner">
+                    <img :src="game.web_pic" class="el-image__inner" :alt="game.title">
                   </div>
                   <div class="btn-enterGame">
                     <button type="button" class="el-button el-button--default">
                       <span>Vào trò chơi</span>
                     </button>
                   </div>
-                  <div class="gameName">{{ game.name }}</div>
+                  <div class="gameName">{{ game.title }}</div>
                 </div>
               </div>
-            </div>
-          </div>
-          <div class="swiper-button-prev"></div>
-          <div class="swiper-button-next"></div>
+            </Slide>
+            <template #addons>
+              <Navigation />
+            </template>
+          </Carousel>
         </div>
       </div>
-      <div v-else>Không có game nổi bật</div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import useGames from '@/composables/useGames'
+import type { Game } from '~/types/game'
 
-const { featuredGames, loading, error } = useGames()
-const title = ref('Game nổi bật')
+// TODO: fix css in this component and carousel
 
+const { featuredGames } = useGames()
+
+const getCanvasStyle = (game: Game) => {
+  return {
+    backgroundColor: 'transparent',
+    transform: 'matrix(0.653846, 0, 0, 0.653846, -45, -45)'
+  }
+}
 </script>
+
+<style scoped>
+:deep(.carousel__slide) {
+  padding: 5px;
+}
+
+:deep(.carousel__prev),
+:deep(.carousel__next) {
+  background-color: hsla(0,0%,94.1%,.6);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+}
+
+:deep(.carousel__prev) {
+  left: -25px;
+}
+
+:deep(.carousel__next) {
+  right: -25px;
+}
+</style>
