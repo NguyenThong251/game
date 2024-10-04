@@ -16,14 +16,9 @@ import useGames from '@/composables/useGames'
 import { useLanguageStore } from '@/stores/languageStore'
 import { useNotices } from '@/composables/useNotices'
 
-const { fetchGames } = useGames()
 const { notices, fetchNotices } = useNotices()
 const languageStore = useLanguageStore()
 
 await languageStore.initLanguage()
 await fetchNotices()
-
-onMounted(() => {
-    fetchGames()
-})
 </script>

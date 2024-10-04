@@ -1,62 +1,62 @@
-import { ref, onMounted } from 'vue'
-import type { Game, ApiResponse } from '~/types/game'
+import { ref, computed } from 'vue'
+import type { Game } from '~/types/game'
 import { getMockGames, getUpcomingGames, getFeaturedGames } from '~/mocks/games'
 
 export default function useGames() {
+  const { data, pending, error, refresh } = useLazyAsyncData(
+    'games',
+    async () => {
+      try {
+        // Using mock data
+        const mockData = getMockGames()
 
-  const upcomingGames = ref<Game[]>([])
-  const featuredGames = ref<Game[]>([])
-  const loading = ref(false)
-  const error = ref<string | null>(null)
-  // const config = useRuntimeConfig();
+        if (mockData.status === 'success') {
+          return {
+            upcoming: getUpcomingGames(),
+            featured: getFeaturedGames()
+          }
+        } else {
+          throw new Error('Không thể tải dữ liệu trò chơi')
+        }
 
-  const fetchGames = async () => {
-    loading.value = true
-    error.value = null
+        // Uncomment the following block when ready to use real API
+        /*
+        const config = useRuntimeConfig()
+        const { data } = await $fetch<ApiResponse>(`${config.public.apiBase}/games/hotmain`)
 
-    try {
-      // Sử dụng mock data
-      const mockData = getMockGames()
+        if (data && data.status === 'success') {
+          const gameCategories = data.data
 
-      if (mockData.status === 'success') {
-        upcomingGames.value = getUpcomingGames()
-        featuredGames.value = getFeaturedGames()
-      } else {
-        throw new Error('Không thể tải dữ liệu trò chơi')
+          const upcomingCategory = gameCategories.find(cat => cat.tags === 'mothuong')
+          const featuredCategory = gameCategories.find(cat => cat.tags === 'noibat')
+
+          return {
+            upcoming: upcomingCategory ? upcomingCategory.list : [],
+            featured: featuredCategory ? featuredCategory.list : []
+          }
+        } else {
+          throw new Error('Không thể tải dữ liệu trò chơi')
+        }
+        */
+      } catch (err) {
+        console.error('Đã xảy ra lỗi khi tải dữ liệu trò chơi', err)
+        throw err
       }
-
-      /*
-      const { data } = await useFetch<ApiResponse>(`${config.public.apiBase}/games/hotmain`)
-
-      if (data.value && data.value.status === 'success') {
-        const gameCategories = data.value.data
-
-        const upcomingCategory = gameCategories.find(cat => cat.tags === 'mothuong')
-        const featuredCategory = gameCategories.find(cat => cat.tags === 'noibat')
-
-        upcomingGames.value = upcomingCategory ? upcomingCategory.list : []
-        featuredGames.value = featuredCategory ? featuredCategory.list : []
-      } else {
-        throw new Error('Không thể tải dữ liệu trò chơi')
-      }
-      */
-    } catch (err) {
-      error.value = 'Đã xảy ra lỗi khi tải dữ liệu trò chơi'
-      console.error(error.value, err)
-    } finally {
-      loading.value = false
+    },
+    {
+      server: true,
+      immediate: true
     }
-  }
+  )
 
-  onMounted(() => {
-    fetchGames()
-  })
+  const upcomingGames = computed(() => data.value?.upcoming || [])
+  const featuredGames = computed(() => data.value?.featured || [])
 
   return {
     upcomingGames,
     featuredGames,
-    loading,
+    pending,
     error,
-    fetchGames
+    refresh
   }
 }

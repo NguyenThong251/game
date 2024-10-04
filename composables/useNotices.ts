@@ -1,5 +1,4 @@
-import { ref, computed } from 'vue'
-import { $fetch } from 'ofetch'
+import { ref, computed, onServerPrefetch } from 'vue'
 import { useLanguageStore } from '@/stores/languageStore'
 
 interface Notice {
@@ -23,22 +22,28 @@ export const useNotices = () => {
 
   const currentLang = computed(() => languageStore.currentLanguage)
 
+  const { data: noticesData, refresh } = useAsyncData<ApiResponse>(
+    'notices',
+    () => $fetch(`${config.public.apiBase}/system/notices`, {
+      params: { lang: currentLang.value }
+    })
+  )
+
   const fetchNotices = async () => {
     try {
-      const response = await $fetch<ApiResponse>(`${config.public.apiBase}/system/notices`, {
-        params: { lang: currentLang.value }
-      })
-
-      if (response.status === 'success' && Array.isArray(response.data)) {
-        notices.value = response.data
+      await refresh()
+      if (noticesData.value?.status === 'success' && Array.isArray(noticesData.value.data)) {
+        notices.value = noticesData.value.data
         console.log('Notices fetched:', notices.value)
       } else {
-        console.error('Unexpected API response:', response)
+        console.error('Unexpected API response:', noticesData.value)
       }
     } catch (error) {
       console.error('Lỗi khi fetch thông báo:', error)
     }
   }
+
+  fetchNotices()
 
   return {
     notices,

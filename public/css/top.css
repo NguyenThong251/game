@@ -1,31 +1,39 @@
 .mv {
   position: relative;
 }
+
 .mv .mySwiper .swiper-slide a {
   display: block;
 }
+
 .mv .mySwiper .swiper-slide a:hover {
   opacity: 1;
 }
+
 .mv .mySwiper .swiper-slide img {
   width: 100%;
   height: auto;
 }
+
 .mv .mySwiper .swiper-button-next,
 .mv .mySwiper .swiper-button-prev {
   color: #fff;
   background-color: rgba(0, 0, 0, 0.4);
 }
+
 .mv .mySwiper .swiper-button-next:after,
 .mv .mySwiper .swiper-button-prev:after {
   font-size: 16px;
 }
+
 .mv .mySwiper .swiper-button-next {
   right: 0;
 }
+
 .mv .mySwiper .swiper-button-prev {
   left: 0;
 }
+
 .mv .marquee {
   background-color: rgba(54, 66, 76, 0.46);
   padding: 10px 0 10px;
@@ -35,22 +43,27 @@
   left: 0;
   right: 0;
 }
+
 @media screen and (max-width: 1023px) {
   .mv .marquee {
     padding: 5px 0;
   }
 }
+
 .mv .marquee .context {
   position: relative;
 }
+
 .mv .marquee .context img {
   position: absolute;
 }
+
 .mv .marquee .context marquee {
   font-size: 14px;
   margin-left: 30px;
   color: #fff;
 }
+
 @media screen and (max-width: 1023px) {
   .mv .marquee .context marquee {
     font-size: 12px;
@@ -83,7 +96,8 @@
     overflow: hidden;
   }
 }
-.home > div {
+
+.home>div {
   margin-top: 20px;
 }
 
@@ -109,6 +123,7 @@
     margin: 0 auto;
   }
 }
+
 .home .section-title:before {
   background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfQAAAAnCAMAAADO1UqNAAABdFBMVEUAAADg0P/cy//k1v/YxP/fz//e0v/j1f/m1//NtP/Qt//Su//VwP/SvP/iz//NtP/NtP/Wwf/UvP/cy//v4f/NtP/byv/gz//Ruf/j0//NtP/byP/Otf/Ptf/Xw//j1f/eyv/MtP/Otf/Otf/YxP/Zxv/Otv/ey//f0P/Tvf/Ntf/NtP/Ruv/ax//g0f/h0v/h0v/h0v/g0f/QuP/Otf/NtP/Tvf/cyv/Ru//Wwf/Xw//Xw//cy//dzP/Otf/fz//j1P/j1P/Zyf/SvP/Pt//TvP/Wwf/fzf/f0P/Otv/Yw//Tvv/Vv//Ot//Xwv/YxP/Uvv/YxP/Zxv/NtP/ax//Yw//OtP/Otf/i0//QuP/NtP/Ruf/NtP/Su//NtP/Tvf/Uvv/Quf/VwP/ezv/ezf/TuP/Ruv/Ruv/SvP/NtP/NtP/Uvf/Ntf/ayP/Ntf/m1v/VwP/NtP/Wwv/Ns//byf/Ntv/Pt//NtP/NtP/OtP/WwP/Ms/8vAdj5AAAAe3RSTlMADBQPHRYGCgj1NC8hKxj5xSclWgT+Xz4yHsBnOTYjEhH86Lt9b7dVOinx1KZrNjMvLBsZ7eSYYy2mmXhSTUhHJCEaxrKdhkpCQB+7sKufk4+Nh4aBc2FZJ9/f2trMzMC2rotPRA/V0aGfl5N/eHIoq46BeHNP46ZpU4Rs318lAAADIklEQVR42u3Z218SQRTA8SOVioqggqVpsliW0B0ou1GZWVqUZUqZWVpWmlmmpnb++XbOzM7sheq54Xxf4GHffjvzmTkLzG4dwBpNJbkNrLFU4ohc3XLdEDAVx+EMbgKz2LwzH2q+DvNc3Wpu30wt1By4utXcuiPo1HzN10DYz+A+MCvRit7W1QeoOdnHDFe3Ui1D5/QNdA6oeV405+pWqzmiua4+mMc9MDYxMw/MMm7zDZBmMbnbRs25utUOqLmu7sRFc65uNWpurCGm0hCyLa5zzBq7SZwFo72EmKxAtLrD1a0Raj5WwupWveobXN0alWDzRA4n0rCF8brVD4BZwG2+FWreDADrGJ/i6pYKNR/N4YhoHqlurnOgpV3NrlbS4moSVg+RbHZIiMViR0gnuSz0SXeVO+Ql+SZcki4qF5TzyhnPUeMh+UBukwfklvLedVM67enRent6javkuHZOOeWZ89zwOWn8kH4Jk54VZWZlxvNFueJ33/isnA2okmVlYnlCGdGGffq1lFagjypal27+z+okLZOL3ETGzurWMrPpHEwczqvTmrCBpsGelFK3DHfUAQMFg/V25nbIV0Ume6FNTj7XnmlPtes+T7RrPt+lx9o7zyPtreee8cbzSfmovPa88vwkOaXkyUtxkownBcdxMi5ELMUCt3GsgVLMYwrCEnGswl+kteaQVr8Wn6YovWFEZaUhEhPkH+NIVCcpjndK44b7Oh7+oz4yLXWEnQjodtGv1hUx6pOIGPNpr+9YVFtdgyEDAZUCLmXrruRYAQsxIOHdn/3niou4tBqtXr95Fze3Q53qFYDsEhaKENJdxuFWYBYIVxeDGbf5Ije32eEFTDUFqy/Wad5Rxv4WYJYIV19HLHNz20271U3Q1RSaK7p5hJtbxr+Mm1K4sEbVI5sBswpV182naRzHzW3nHc1b+kVzALnWzQE/tQrMOlRdNC93AMjqA75LHTe3khi3ZWVzVT0/wM1tN5rDPJa7wbOH+UHRnMbzzFKJnGpuqrfREJ6bWyxRGAWiq5cq9OGFNY50FZGbN5p0lZs3nvRWERgD+A2TVXNwgbQ9IwAAAABJRU5ErkJggg==) 50% no-repeat;
   margin-left: -452px;
@@ -136,7 +151,7 @@
   margin: 0 -10px;
 }
 
-.home .popularBettingNewTheme > .popularBetting {
+.home .popularBettingNewTheme>.popularBetting {
   background: #fff;
   border-radius: 16px;
   box-shadow: 0 0 0 0 transparent, inset 0 -1px 3px 0 rgba(0, 0, 0, 0.11), 0 0 8px 0 rgba(0, 0, 0, 0.12);
@@ -151,7 +166,7 @@
   box-sizing: border-box;
 }
 
-.home .popularBettingNewTheme > .popularBetting .countdown-wp {
+.home .popularBettingNewTheme>.popularBetting .countdown-wp {
   background-image: linear-gradient(180deg, #ff598e, #ff2d55);
   border-radius: 0 16px 0 16px;
   display: flex;
@@ -172,7 +187,7 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.home .popularBettingNewTheme > .popularBetting .countdown-wp .icon-icon_clock {
+.home .popularBettingNewTheme>.popularBetting .countdown-wp .icon-icon_clock {
   display: none;
 }
 
@@ -180,7 +195,7 @@
   color: #fff;
 }
 
-.home .popularBettingNewTheme > .popularBetting .popularBetting-inner .image-wrapper {
+.home .popularBettingNewTheme>.popularBetting .popularBetting-inner .image-wrapper {
   background: #f8f9fa;
   border-radius: 12px;
   display: flex;
@@ -190,30 +205,30 @@
   height: 50px;
 }
 
-.home .popularBettingNewTheme > .popularBetting .popularBetting-inner .image-wrapper img {
+.home .popularBettingNewTheme>.popularBetting .popularBetting-inner .image-wrapper img {
   width: 66px;
   height: 66px;
 }
 
-.home .popularBettingNewTheme > .popularBetting .popularBetting-inner .lottery-info-wp {
+.home .popularBettingNewTheme>.popularBetting .popularBetting-inner .lottery-info-wp {
   flex: 1;
   max-width: calc(100% - 66px);
 }
 
-.home .popularBettingNewTheme > .popularBetting .popularBetting-inner .lottery-info-wp .lottery-name {
+.home .popularBettingNewTheme>.popularBetting .popularBetting-inner .lottery-info-wp .lottery-name {
   background: #f8f9fa;
   color: #677684;
   font-size: 16px;
   padding: 10px 15px;
 }
 
-.home .popularBettingNewTheme > .popularBetting .popularBetting-inner .lottery-info-wp .play-info-wp {
+.home .popularBettingNewTheme>.popularBetting .popularBetting-inner .lottery-info-wp .play-info-wp {
   display: flex;
   justify-content: start;
   margin: 15px 20px 10px 0;
 }
 
-.home .popularBettingNewTheme > .popularBetting .popularBetting-inner .lottery-info-wp .play-info-wp div {
+.home .popularBettingNewTheme>.popularBetting .popularBetting-inner .lottery-info-wp .play-info-wp div {
   background: #f8f9fa;
   border-radius: 12px;
   color: #90a2dc;
@@ -224,25 +239,25 @@
   cursor: pointer;
 }
 
-.home .popularBettingNewTheme > .popularBetting .popularBetting-inner {
+.home .popularBettingNewTheme>.popularBetting .popularBetting-inner {
   display: flex;
   justify-content: space-between;
   gap: 15px;
   margin: 5px 0;
 }
 
-.home .popularBettingNewTheme > .popularBetting .popularBetting-inner .dice-wp {
+.home .popularBettingNewTheme>.popularBetting .popularBetting-inner .dice-wp {
   display: flex;
   width: 100%;
   align-items: center;
   justify-content: space-between;
 }
 
-.home .popularBettingNewTheme > .popularBetting .popularBetting-inner .dice-wp div:first-child {
+.home .popularBettingNewTheme>.popularBetting .popularBetting-inner .dice-wp div:first-child {
   margin-left: 0;
 }
 
-.home .popularBettingNewTheme > .popularBetting .popularBetting-inner .dice-wp .open_results {
+.home .popularBettingNewTheme>.popularBetting .popularBetting-inner .dice-wp .open_results {
   background-image: linear-gradient(127deg, #7146ff, #4a69ff);
   border: 1px solid hsla(0, 0%, 100%, 0.6);
   border-radius: 4px;
@@ -251,7 +266,7 @@
   font-size: 12px;
 }
 
-.home .popularBettingNewTheme > .popularBetting .popularBetting-inner .dice-wp div {
+.home .popularBettingNewTheme>.popularBetting .popularBetting-inner .dice-wp div {
   margin-left: 5px;
   width: 36px;
   height: 36px;
@@ -260,48 +275,48 @@
   justify-content: center;
 }
 
-.home .popularBettingNewTheme > .popularBetting .popularBetting-inner .dice-wp .name {
+.home .popularBettingNewTheme>.popularBetting .popularBetting-inner .dice-wp .name {
   background-image: none;
   box-shadow: inset 0 -1px 2px 0 #8e9fda, inset 0 1px 2px 0 #8d9ed9;
   color: #8fa1dc;
 }
 
-.home .popularBettingNewTheme > .popularBetting .popularBetting-inner .dice-2,
-.home .popularBettingNewTheme > .popularBetting .popularBetting-inner .dice-22,
-.home .popularBettingNewTheme > .popularBetting .popularBetting-inner .dice-222 {
+.home .popularBettingNewTheme>.popularBetting .popularBetting-inner .dice-2,
+.home .popularBettingNewTheme>.popularBetting .popularBetting-inner .dice-22,
+.home .popularBettingNewTheme>.popularBetting .popularBetting-inner .dice-222 {
   background-size: 100% !important;
   background: url(../image/home/dice-4.png) 50%;
 }
 
-.home .popularBettingNewTheme > .popularBetting .popularBetting-inner .dice-6,
-.home .popularBettingNewTheme > .popularBetting .popularBetting-inner .dice-66,
-.home .popularBettingNewTheme > .popularBetting .popularBetting-inner .dice-666 {
+.home .popularBettingNewTheme>.popularBetting .popularBetting-inner .dice-6,
+.home .popularBettingNewTheme>.popularBetting .popularBetting-inner .dice-66,
+.home .popularBettingNewTheme>.popularBetting .popularBetting-inner .dice-666 {
   background-size: 100% !important;
   background: url(../image/home/dice-6.png) 50%;
 }
 
-.home .popularBettingNewTheme > .popularBetting .popularBetting-inner .dice-5,
-.home .popularBettingNewTheme > .popularBetting .popularBetting-inner .dice-55,
-.home .popularBettingNewTheme > .popularBetting .popularBetting-inner .dice-555 {
+.home .popularBettingNewTheme>.popularBetting .popularBetting-inner .dice-5,
+.home .popularBettingNewTheme>.popularBetting .popularBetting-inner .dice-55,
+.home .popularBettingNewTheme>.popularBetting .popularBetting-inner .dice-555 {
   background-size: 100% !important;
   background: url(../image/home/dice-5.png) 50%;
 }
 
-.home .popularBettingNewTheme > .popularBetting .popularBetting-inner .dice-1,
-.home .popularBettingNewTheme > .popularBetting .popularBetting-inner .dice-11,
-.home .popularBettingNewTheme > .popularBetting .popularBetting-inner .dice-111 {
+.home .popularBettingNewTheme>.popularBetting .popularBetting-inner .dice-1,
+.home .popularBettingNewTheme>.popularBetting .popularBetting-inner .dice-11,
+.home .popularBettingNewTheme>.popularBetting .popularBetting-inner .dice-111 {
   background-size: 100% !important;
   background: url(../image/home/dice-4.png) 50%;
 }
 
-.home .popularBettingNewTheme > .popularBetting .popularBetting-inner .dice-4,
-.home .popularBettingNewTheme > .popularBetting .popularBetting-inner .dice-44,
-.home .popularBettingNewTheme > .popularBetting .popularBetting-inner .dice-444 {
+.home .popularBettingNewTheme>.popularBetting .popularBetting-inner .dice-4,
+.home .popularBettingNewTheme>.popularBetting .popularBetting-inner .dice-44,
+.home .popularBettingNewTheme>.popularBetting .popularBetting-inner .dice-444 {
   background-size: 100% !important;
   background: url(../image/home/dice-4.png) 50%;
 }
 
-.home .popularBettingNewTheme > .popularBetting .popularBetting-inner .betting {
+.home .popularBettingNewTheme>.popularBetting .popularBetting-inner .betting {
   background-image: linear-gradient(104deg, #7146ff, #4a69ff);
   box-shadow: inset 0 1px 4px 0 hsla(0, 0%, 100%, 0.4);
   box-shadow: inset 0 -2px 4px 0 rgba(0, 0, 0, 0.3);
@@ -318,14 +333,14 @@
   overflow: hidden;
 }
 
-.home .popularBettingNewTheme > .popularBetting .popularBetting-inner .betting span {
+.home .popularBettingNewTheme>.popularBetting .popularBetting-inner .betting span {
   display: block;
   font-size: 14px;
   color: #fff;
   white-space: nowrap;
 }
 
-.home .popularBettingNewTheme > .popularBetting .popularBetting-inner .betting span:before {
+.home .popularBettingNewTheme>.popularBetting .popularBetting-inner .betting span:before {
   padding-right: 5px;
 }
 
@@ -336,14 +351,14 @@
   font-family: fontawesome !important;
 }
 
-.home .popularBettingNewTheme > .popularBetting .popularBetting-inner .open-numbers {
+.home .popularBettingNewTheme>.popularBetting .popularBetting-inner .open-numbers {
   display: flex;
   flex-wrap: wrap;
   max-width: 270px;
   width: 80%;
 }
 
-.home .popularBettingNewTheme > .popularBetting .popularBetting-inner .open-numbers .ball {
+.home .popularBettingNewTheme>.popularBetting .popularBetting-inner .open-numbers .ball {
   background: url(../image/home/ball.png) no-repeat 50%/120%;
   border-radius: 50%;
   color: #292b31;
@@ -370,7 +385,7 @@
   transition-property: transform;
 }
 
-.home .swiper .swiper-slide .game + .game {
+.home .swiper .swiper-slide .game+.game {
   margin-top: 30px;
 }
 
@@ -397,22 +412,35 @@
   overflow: hidden;
 }
 
-.home .game > div,
-.home .game > img {
+.home .game>div,
+.home .game>img {
   pointer-events: none;
 }
 
 .home .game .el-image {
-  width: 100%; 
+  width: 100%;
   position: relative;
   display: inline-block;
   overflow: hidden;
+  height: 145px;
+}
+
+@media screen and (max-width: 1023px) {
+  .home .game .el-image {
+    height: 115px;
+  }
 }
 
 .home .game .el-image img {
   width: 100%;
   height: 145px;
   object-fit: contain;
+}
+
+@media screen and (max-width: 1023px) {
+  .home .game .el-image img {
+    height: 115px;
+  }
 }
 
 .home .el-image__inner {
@@ -434,8 +462,8 @@
   transition: all 0.4s;
 }
 
-.home .game > div,
-.home .game > img {
+.home .game>div,
+.home .game>img {
   pointer-events: none;
 }
 
@@ -692,187 +720,46 @@
   .home {
     padding-bottom: 40px;
   }
+
   .home .popularBettingNewTheme {
     display: block !important;
   }
-  .home .popularBettingNewTheme > .popularBetting {
+
+  .home .popularBettingNewTheme>.popularBetting {
     max-width: 100%;
     flex-basis: 100%;
   }
-  .home .popularBettingNewTheme > .popularBetting .popularBetting-inner .dice-wp .open_results {
+
+  .home .popularBettingNewTheme>.popularBetting .popularBetting-inner .dice-wp .open_results {
     width: 30px;
     height: 30px;
   }
-  .home .popularBettingNewTheme > .popularBetting .popularBetting-inner .dice-wp div {
+
+  .home .popularBettingNewTheme>.popularBetting .popularBetting-inner .dice-wp div {
     width: 30px;
     height: 30px;
   }
-  .home .popularBettingNewTheme > .popularBetting .popularBetting-inner .betting {
+
+  .home .popularBettingNewTheme>.popularBetting .popularBetting-inner .betting {
     margin: 0;
   }
+
   .home .game {
     height: auto;
   }
+
   .home .swiper .swiper-slide {
     margin-top: 20px;
   }
+
   .home .swiper-slide-second {
     margin-top: 0;
   }
-  .home .popularBettingNewTheme > .popularBetting .popularBetting-inner .open-numbers .ball {
+
+  .home .popularBettingNewTheme>.popularBetting .popularBetting-inner .open-numbers .ball {
     width: 28px;
     height: 28px;
   }
-}/*# sourceMappingURL=top.css.map */
-
-.header .header01 .dropdown-lang .user-menu {
-  margin-top: 10px;
-  position: relative;
-  right: 0;
-  z-index: 10;
-  padding: 10px 0;
-  background-color: #fff;
-  border: 1px solid #ebeef5;
-  border-radius: 4px;
-  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
-  display: none;
 }
 
-.header .header01 .dropdown-lang .user-menu:after {
-  content: "";
-  left: 52px;
-  top: -4px;
-  display: inline-block;
-  transition: 0.3s;
-  width: 0;
-  right: 3px;
-  height: 0;
-  border: 5px solid #fff;
-  border-top: 0;
-  border-left-color: transparent;
-  border-right-color: transparent;
-  position: absolute;
-}
-.header .header01 .dropdown-lang .user-menu p {
-  line-height: 36px;
-  padding: 0 20px;
-  margin: 0;
-  font-size: 14px;
-  color: #606266;
-  cursor: pointer;
-  outline: 0;
-}
-.header .header01 .dropdown-lang .user-menu p:hover {
-  background-color: #ecf5ff;
-  color: #66b1ff;
-}
-.header .header01 .topbar-ri {
-  display: flex;
-  align-items: center;
-}
-.header .header01 .right .dropdown .user-menu {
-  margin-top: 10px;
-  right: 0;
-  z-index: 10;
-  background-color: #fff;
-  border: 1px solid #ebeef5;
-  border-radius: 4px;
-  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
-  width: 200px;
-  position: absolute;
-  right: 0;
-  /* display: none; */
-}
-
-.header .header01 .right .dropdown .user-menu:after {
-  content: "";
-  right: 32px;
-  top: -4px;
-  display: inline-block;
-  transition: 0.3s;
-  width: 0;
-  height: 0;
-  border: 5px solid #fff;
-  border-top: 0;
-  border-left-color: transparent;
-  border-right-color: transparent;
-  position: absolute;
-}
-.header .header01 .right .dropdown .user-menu ul li a,
-.header .header01 .right .dropdown .user-menu ul li .wrap {
-  color: #5a5e68;
-  transition: all 0.3s;
-  padding: 10px 10px;
-  /* display: block; */
-  font-size: 16px;
-  color: #5a5e68;
-  cursor: pointer;
-}
-.header .header01 .right .dropdown .user-menu ul li a i,
-.header .header01 .right .dropdown .user-menu ul li .wrap i {
-  font-family: "Font Awesome 6 Free" !important;
-  color: #959aa5;
-}
-.header .header01 .right .dropdown .user-menu ul li a:hover,
-.header .header01 .right .dropdown .user-menu ul li .wrap:hover {
-  background-color: #f8f9fb;
-  opacity: 1;
-}
-.header .header01 .right .dropdown .user-menu ul li.line {
-  border-bottom: 1px solid #edf0f4;
-}
-.header .header01 .right .dropdown .user-menu ul li .money {
-  margin-left: 24px;
-  color: #4b88d6;
-  font-size: 20px;
-}
-.register .content__body .el-dialog__body .form-content .form-item .dropdown .user-menu {
-  margin-top: 10px;
-  background-color: #fff;
-  max-height: 274px;
-  overflow: auto;
-  border: 1px solid #e4e7ed;
-  border-radius: 4px;
-  background-color: #fff;
-  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
-  box-sizing: border-box;
-}
-.register .content__body .el-dialog__body .form-content .form-item .dropdown .user-menu p {
-  font-size: 14px;
-  padding: 0 20px;
-  position: relative;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  color: #606266;
-  height: 34px;
-  line-height: 34px;
-  box-sizing: border-box;
-  cursor: pointer;
-  transition: all 0.3s;
-}
-.register .content__body .el-dialog__body .form-content .form-item .dropdown .user-menu p:hover {
-  background-color: #f5f7fa;
-}
-.fade-slide-enter-active,
-.fade-slide-leave-active {
-    transition: all 0.3s ease;
-}
-
-.fade-slide-enter,
-.fade-slide-leave-to {
-    opacity: 0;
-    transform: translateY(-10px);
-}
-
-/* Style the dropdown */
-.user-menu {
-    margin-top: 10px;
-    position: absolute;
-    right: 0;
-    z-index: 10;
-    padding: 10px 0;
-    background-color: #fff;
-    border: 1px solid #ebeef5;
-    border-radius: 4px;
-    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
-}
+/*# sourceMappingURL=top.css.map */
