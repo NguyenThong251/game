@@ -31,11 +31,9 @@
   </div>
 </template>
 
-<script lang="ts" setup>
-import { ref, onMounted } from 'vue'
-import useGameTypeMenuApis from '~/composables/useGameTypeMenuApis'
-
-const { fetchGameApis } = useGameTypeMenuApis()
+<script setup lang="ts">
+import { useAsyncData } from '#app'
+import useApi from '~/composables/useApi'
 
 interface Category {
   title: string;
@@ -44,21 +42,28 @@ interface Category {
   apis?: any[];
 }
 
-const categories = ref<Category[]>([
+const baseCategories: Category[] = [
   { title: 'Thể Thao', href: '#/Sport', gameType: 5 },
   { title: 'Casino', href: '#/Live', gameType: 1 },
   { title: 'Nổ Hũ', href: '#/Game', gameType: 3 },
   { title: 'Game Bài', href: '#/Board', gameType: 6 },
   { title: 'Bắn Cá', href: '#/Fish', gameType: 2 },
   { title: 'Xổ Số', href: '#/Lottery', gameType: 4 },
-])
+]
 
-onMounted(async () => {
-  for (const category of categories.value) {
-    if (category.gameType) {
-      category.apis = await fetchGameApis(category.gameType)
-    }
-  }
+const { data: categories } = await useAsyncData('categories', async () => {
+  const categoriesWithApis = await Promise.all(
+    baseCategories.map(async (category) => {
+      if (category.gameType) {
+        const response = await useApi(`games/apis?lang=vi&gameType=${category.gameType}`)
+        if (response.status === 'success') {
+          return { ...category, apis: response.data }
+        }
+      }
+      return category
+    })
+  )
+  return categoriesWithApis
 })
 </script>
 

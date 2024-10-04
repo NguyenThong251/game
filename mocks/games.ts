@@ -1,40 +1,6 @@
 import type { ApiResponse, GameCategory, Game } from '@/types/game'
 
 const mockGames: Game[] = [
-    // {
-    //     id: 2721,
-    //     api_name: "BBIN",
-    //     name: "Mô tông giáng thế",
-    //     en_name: "",
-    //     game_type: 3,
-    //     game_code: "5221",
-    //     img_url: "https://cms.t79.bet/storage/uploads/img/bbin/5221.png",
-    //     client_type: "0",
-    //     platform: null,
-    //     param_remark: '{"gameType":"3"}',
-    //     is_open: "1",
-    //     weight: "1",
-    //     tags: "hot,recommend,new",
-    //     created_at: "0000-00-00 00:00:00",
-    //     updated_at: "0000-00-00 00:00:00"
-    // },
-    // {
-    //     id: 2722,
-    //     api_name: "BBIN",
-    //     name: "Nguyệt cung mỹ nhân",
-    //     en_name: "",
-    //     game_type: 3,
-    //     game_code: "5227",
-    //     img_url: "https://cms.t79.bet/storage/uploads/img/bbin/5227.png",
-    //     client_type: "0",
-    //     platform: null,
-    //     param_remark: '{"gameType":"3"}',
-    //     is_open: "1",
-    //     weight: "1",
-    //     tags: "hot,recommend,new",
-    //     created_at: "0000-00-00 00:00:00",
-    //     updated_at: "0000-00-00 00:00:00"
-    // },
     {
         id: 29,
         title: "AG băng hình",
@@ -57,10 +23,7 @@ const mockGames: Game[] = [
         created_at: "2022-03-17 11:01:33",
         updated_at: "2024-01-22 17:43:15",
         icon_url: "https://cms.t79.bet/storage/uploads/icon/202409/13/icon_1726204038_2DNpbnDNhH.png"
-      }
-      
-   
-    // Thêm các game khác nếu cần
+    }
 ]
 
 const mockApiResponse: ApiResponse = {

@@ -13,20 +13,7 @@
                 <div class="right">
                     <FormLoginDesktop />
                 </div>
-                <div class="js-toggle dropdown-lang">
-                    <div class="js-toggle-link tg-link">
-                        <p class="icon icon--vi"></p>
-                        <!-- <p class="icon icon--en"></p> -->
-                        <p class="text">
-                            <span>VN</span>
-                            <span class="arrow"></span>
-                        </p>
-                    </div>
-                    <div class="js-toggle-content tg-content">
-                        <p>Việt Nam</p>
-                        <p>English</p>
-                    </div>
-                </div>
+                <HeaderLanguageSelector />
             </div>
         </div>
         <div class="header02 pc">
