@@ -20,9 +20,7 @@ useHead({
     ],
     script: [
         { src: '/js/jquery-3.6.0.js', defer: true },
-        { src: '/js/swiper/swiper-bundle.min.js', defer: true },
         { src: '/js/common.js', defer: true },
-        { src: '/js/page/top.js', defer: true }
     ]
 })
 </script>

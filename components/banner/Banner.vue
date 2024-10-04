@@ -1,10 +1,9 @@
 <template>
   <div class="mv">
-    <Carousel :items-to-show="1" :wrap-around="true" :autoplay="5000">
-      <Slide v-for="(slide, index) in slides" :key="index">
-        <a :href="slide.link">
-          <img class="pc" :src="slide.pcImage" alt="">
-          <img class="sp" :src="slide.spImage" alt="">
+    <Carousel v-if="banners.length" :items-to-show="1" :wrap-around="true" :autoplay="3000" :itemsToScroll="1" :pauseAutoplayOnHover="true">
+      <Slide v-for="(slide, index) in banners" :key="index">
+        <a :href="slide.jump_link" :target="slide.is_new_window ? '_blank' : '_self'">
+          <img :src="slide.url" :alt="slide.title">
         </a>
       </Slide>
 
@@ -12,24 +11,42 @@
         <Navigation />
       </template>
     </Carousel>
-    <BannerMarquee />
+    <ClientOnly>
+      <BannerMarquee />
+    </ClientOnly>
   </div>
 </template>
 
 <script setup>
+import { onServerPrefetch, onMounted } from 'vue'
+import { ClientOnly } from '#components'
+import useBanners from '~/composables/useBanners'
 
-const slides = [
-  {
-    link: '#',
-    pcImage: '/image/Desktop/home/banner-home.jpg',
-    spImage: '/image/Mobile/home/banner_1.jpg'
-  },
-  {
-    link: '#',
-    pcImage: '/image/Desktop/home/banner-home.jpg',
-    spImage: '/image/Mobile/home/banner_2.jpg'
+const { banners, isMobile, fetchBanners, checkDevice } = useBanners()
+
+// For SSR
+onServerPrefetch(async () => {
+  console.log('Server prefetch')
+  checkDevice()
+  await fetchBanners()
+})
+
+// For client-side
+onMounted(() => {
+  console.log('Client mounted')
+  if (banners.value.length === 0) {
+    checkDevice()
+    fetchBanners()
   }
-]
+  
+  window.addEventListener('resize', () => {
+    const wasMobile = isMobile.value
+    checkDevice()
+    if (wasMobile !== isMobile.value) {
+      fetchBanners()
+    }
+  })
+})
 </script>
 
 <style scoped>
