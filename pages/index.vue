@@ -2,7 +2,6 @@
     <main class="main">
         <Banner />
         <MenuMobile />
-        <BannerMarquee />
         <div class="wrap-home">
             <div class="home">
                 <GamesUpcoming />

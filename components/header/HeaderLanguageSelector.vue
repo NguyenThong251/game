@@ -1,5 +1,5 @@
 <template>
-  <div v-if="languages" class="js-toggle dropdown-lang">
+  <div v-if="languageData" class="js-toggle dropdown-lang">
     <div class="js-toggle-link tg-link">
       <p class="icon" :class="currentLanguage === 'vi' ? 'icon--vi' : 'icon--en'"></p>
       <p class="text">
@@ -8,7 +8,7 @@
       </p>
     </div>
     <div class="js-toggle-content tg-content">
-      <p v-for="(name, code) in languages" :key="code" @click="changeLanguage(code)">
+      <p v-for="(name, code) in languageData.languages" :key="code" @click="changeLanguage(code)">
         {{ name }}
       </p>
     </div>
@@ -17,27 +17,24 @@
 </template>
 
 <script setup lang="ts">
-import { useAsyncData } from '#app'
-import useApi from '~/composables/useApi'
 import { ref, computed } from 'vue'
+import { useAsyncData } from '#app'
+import { useFetchLanguage } from '~/composables/useLanguage'
 
-const { data: languages } = await useAsyncData('languages', async () => {
-  try {
-    const response = await useApi('languages')
-    if (response.status === 'success') {
-      return response.data
-    }
-    return {}
-  } catch (error) {
-    console.error('Error fetching languages:', error)
-    return {}
+const { languages, defaultLanguage, fetchLanguages } = useFetchLanguage()
+
+const { data: languageData, error } = await useAsyncData('languages', async () => {
+  await fetchLanguages()
+  return {
+    languages: languages.value,
+    defaultLanguage: defaultLanguage.value
   }
 })
 
-const currentLanguage = ref('vi')
+const currentLanguage = ref(languageData.value?.defaultLanguage || 'vi')
 
 const getCurrentLanguageName = computed(() => {
-  return languages.value ? languages.value[currentLanguage.value] : ''
+  return languageData.value?.languages?.[currentLanguage.value] || ''
 })
 
 const changeLanguage = (lang: string) => {
