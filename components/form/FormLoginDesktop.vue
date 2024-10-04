@@ -14,45 +14,51 @@
                         <span class="arrow"></span>
                     </p>
                 </div>
-                <div v-if="isDropdownOpen" class="tg-content">
-                    <ul>
-                        <li class="line">
-                            <div class="wrap">
-                                <div class="top_ye">
-                                    <img src="/image/Desktop/header/icon01.png" width="20px" height="20px" alt="ye"> Số
-                                    dư ví <i class="fas fa-sync-alt" style="margin-left: 4px;"></i>
+                <!-- <div v-if="isDropdownOpen" class="tg-content"> -->
+                <transition name="fade-slide">
+                    <div v-if="isDropdownOpen" class="user-menu" :class="{ show: isDropdownOpen }">
+                        <ul>
+                            <li class="line">
+                                <div class="wrap">
+                                    <div class="top_ye">
+                                        <img src="/image/Desktop/header/icon01.png" width="20px" height="20px" alt="ye">
+                                        Số
+                                        dư ví <i class="fas fa-sync-alt" style="margin-left: 4px;"></i>
+                                    </div>
+                                    <div class="money">0.00</div>
                                 </div>
-                                <div class="money">0.00</div>
-                            </div>
-                        </li>
-                        <li class="">
-                            <a href="#">
-                                <img src="/image/Desktop/header/icon02.png" width="20px" height="20px" alt="ck"> Nạp
-                                Tiền
-                            </a>
-                        </li>
-                        <li class="line">
-                            <a href="">
-                                <img src="/image/Desktop/header/icon03.png" width="20px" height="20px" alt="ck"> Rút
-                                tiền
-                            </a>
-                        </li>
+                            </li>
+                            <li class="">
+                                <a href="#">
+                                    <img src="/image/Desktop/header/icon02.png" width="20px" height="20px" alt="ck"> Nạp
+                                    Tiền
+                                </a>
+                            </li>
+                            <li class="line">
+                                <a href="">
+                                    <img src="/image/Desktop/header/icon03.png" width="20px" height="20px" alt="ck"> Rút
+                                    tiền
+                                </a>
+                            </li>
 
-                        <li class="">
-                            <a href="#">
-                                <img src="/image/Desktop/header/icon04.png" width="20px" height="20px" alt="ck"> Thông
-                                tin
-                                cá nhân
-                            </a>
-                        </li>
-                        <li>
-                            <div class="wrap">
-                                <img src="/image/Desktop/header/icon05.png" width="20px" height="20px" alt="ck"> Đăng
-                                xuất
-                            </div>
-                        </li>
-                    </ul>
-                </div>
+                            <li class="">
+                                <a href="#">
+                                    <img src="/image/Desktop/header/icon04.png" width="20px" height="20px" alt="ck">
+                                    Thông
+                                    tin
+                                    cá nhân
+                                </a>
+                            </li>
+                            <li>
+                                <div class="wrap">
+                                    <img src="/image/Desktop/header/icon05.png" width="20px" height="20px" alt="ck">
+                                    Đăng
+                                    xuất
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </transition>
             </div>
 
         </div>
@@ -76,11 +82,11 @@ import { ref, onMounted, onBeforeUnmount } from 'vue';
 import { useAuthStore } from '@/stores/userStore';
 
 const userStore = useAuthStore();
-const isDropdownOpen = ref(false); // Biến trạng thái cho dropdown
+const isDropdownOpen = ref(false);
 
 const toggleDropdown = () => {
-    isDropdownOpen.value = !isDropdownOpen.value; // Chuyển đổi trạng thái dropdown
-    console.log('Dropdown state:', isDropdownOpen.value); // Kiểm tra trạng thái
+    isDropdownOpen.value = !isDropdownOpen.value;
+
 };
 
 // Đóng dropdown khi nhấp ra ngoài
