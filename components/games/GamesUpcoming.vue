@@ -4,8 +4,8 @@
     <div class="section-content">
       <div v-if="pending">Đang tải...</div>
       <div v-else-if="error">{{ error }}</div>
-      <div v-else-if="upcomingGames.length" class="popularBettingNewTheme">
-        <div v-for="game in upcomingGames" :key="game.id" class="popularBetting">
+      <div v-else-if="limitedUpcomingGames.length" class="popularBettingNewTheme">
+        <div v-for="game in limitedUpcomingGames" :key="game.id" class="popularBetting">
           <div class="countdown-wp">
             <div class="iconfont icon-icon_clock"></div>
             <div class="_timeDown countdown">
@@ -55,4 +55,6 @@ import { ref } from 'vue'
 
 const title = ref('Sắp mở thưởng')
 const { upcomingGames, pending, error } = useGames()
+const limitedUpcomingGames = computed(() => upcomingGames.value.slice(0, 6))
+
 </script>
