@@ -10,7 +10,7 @@
                         <img src="/image/home/BANCA.png" alt="">
                     </p>
                     <p class="text">
-                        <span>My Name</span>
+                        <span>My Name {{ userStore.user?.name }}</span>
                         <span class="arrow"></span>
                     </p>
                 </div>
@@ -82,8 +82,8 @@ import { ref, onMounted, onBeforeUnmount } from 'vue';
 import { useAuthStore } from '@/stores/userStore';
 
 const userStore = useAuthStore();
+console.log(userStore)
 const isDropdownOpen = ref(false);
-
 const toggleDropdown = () => {
     isDropdownOpen.value = !isDropdownOpen.value;
 
@@ -119,7 +119,6 @@ const handleLogin = async () => {
         alert('Login failed!');
     }
 };
-console.log(userStore.logged)
 // Hàm xử lý đăng xuất
 const handleLogout = async () => {
     try {

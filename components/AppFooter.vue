@@ -89,6 +89,8 @@
 </template>
 
 <script setup lang="ts">
-import useApi from '@/composables/useApi'
-const { data: aboutItems } = await useApi(`about/list?lang=vi`);
+// import useApi from '@/composables/useApi'
+// const { data: aboutItems } = await useApi(`about/list?lang=vi`);
+const { aboutItems } = useAbout();
+
 </script>

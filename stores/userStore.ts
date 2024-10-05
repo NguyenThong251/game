@@ -39,20 +39,20 @@ export const useAuthStore = defineStore("authStore", () => {
         method: "POST",
         body: credentials,
       });
-      
+
       if (response.status === "error") {
         return {
           success: false,
           message: response.message || "Đăng nhập thất bại",
         };
       }
-      
+
       if (response.data && response.data.access_token) {
         token.value = response.data.access_token;
         await fetchUser();
         return { success: true };
       }
-      
+
       return {
         success: false,
         message: "Đăng nhập thất bại",
