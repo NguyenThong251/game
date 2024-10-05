@@ -1,16 +1,20 @@
 <template>
   <div class="mv">
-    <Carousel v-if="banners.length" :items-to-show="1" :wrap-around="true" :autoplay="3000" :itemsToScroll="1" :pauseAutoplayOnHover="true">
-      <Slide v-for="(slide, index) in banners" :key="index">
-        <a :href="slide.jump_link" :target="slide.is_new_window ? '_blank' : '_self'">
-          <img :src="slide.url" :alt="slide.title">
-        </a>
-      </Slide>
+    <div v-if="isLoading">Đang tải banner...</div>
+    <div v-else-if="error">{{ error }}</div>
+    <template v-else>
+      <Carousel v-if="data && data.length" :items-to-show="1" :wrap-around="true" :autoplay="3000" :itemsToScroll="1" :pauseAutoplayOnHover="true">
+        <Slide v-for="(slide, index) in data" :key="index">
+          <a :href="slide.jump_link" :target="slide.is_new_window ? '_blank' : '_self'">
+            <img :src="slide.url" :alt="slide.title">
+          </a>
+        </Slide>
 
-      <template #addons>
-        <Navigation />
-      </template>
-    </Carousel>
+        <template #addons>
+          <Navigation />
+        </template>
+      </Carousel>
+    </template>
     <ClientOnly>
       <BannerMarquee />
     </ClientOnly>
@@ -18,34 +22,15 @@
 </template>
 
 <script setup>
-import { onServerPrefetch, onMounted } from 'vue'
-import { ClientOnly } from '#components'
-import useBanners from '~/composables/useBanners'
+import { useAsyncData } from '#app'
+import useBanners from '@/composables/useBanners'
 
-const { banners, isMobile, fetchBanners, checkDevice } = useBanners()
+const { banners, isMobile, isLoading, error, fetchBanners, checkDevice } = useBanners()
 
-// For SSR
-onServerPrefetch(async () => {
-  console.log('Server prefetch')
+const { data } = await useAsyncData('banners', async () => {
   checkDevice()
   await fetchBanners()
-})
-
-// For client-side
-onMounted(() => {
-  console.log('Client mounted')
-  if (banners.value.length === 0) {
-    checkDevice()
-    fetchBanners()
-  }
-  
-  window.addEventListener('resize', () => {
-    const wasMobile = isMobile.value
-    checkDevice()
-    if (wasMobile !== isMobile.value) {
-      fetchBanners()
-    }
-  })
+  return banners.value
 })
 </script>
 
